@@ -25,6 +25,7 @@ import {
   borderRadius,
   BorderRadiusProps
 } from 'styled-system'
+import { getComputedJustifyContent } from './utils/flex'
 
 interface Props extends StyledBoxType {
   center?: boolean
@@ -42,8 +43,40 @@ interface Props extends StyledBoxType {
   color?: string
 }
 
-const Box: React.FC<Props & ColorProps> = ({color, ...props}) => {
-  return <StyledBox color={color} {...props}>{props.children}</StyledBox>
+const Box: React.FC<Props & ColorProps> = ({
+  color,
+  row,
+  center,
+  left,
+  right,
+  top,
+  bottom,
+  rowBetween,
+  rowAround,
+  rowEvenly,
+  colBetween,
+  colAround,
+  colEvenly,
+  ...props
+}) => {
+  const position = {
+    center,
+    left,
+    right,
+    top,
+    bottom,
+    rowBetween,
+    rowAround,
+    rowEvenly,
+    colBetween,
+    colAround,
+    colEvenly
+  }
+  const direction = row ? 'row' : 'column'
+
+  const justifyContent = getComputedJustifyContent(position, direction)  
+
+  return <StyledBox color={color} flexDirection={direction} justifyContent={justifyContent} {...props} />
 }
 
 Box.defaultProps = {
@@ -52,16 +85,16 @@ Box.defaultProps = {
 
 type StyledBoxType =
   // & ColorProps  // Some issues within this prop
-  & SpaceProps
-  & LayoutProps
-  & FlexProps
-  & FlexboxProps
-  & FontSizeProps
-  & FontFamilyProps
-  & FontWeightProps
-  & FontStyleProps
-  & BackgroundProps
-  & BorderRadiusProps
+  SpaceProps &
+    LayoutProps &
+    FlexProps &
+    FlexboxProps &
+    FontSizeProps &
+    FontFamilyProps &
+    FontWeightProps &
+    FontStyleProps &
+    BackgroundProps &
+    BorderRadiusProps
 const StyledBox = styled.div<StyledBoxType | ColorProps>`
   ${color}
   ${layout}

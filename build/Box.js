@@ -32,9 +32,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var styled_1 = __importDefault(require("@emotion/styled"));
 var styled_system_1 = require("styled-system");
+var flex_1 = require("./utils/flex");
 var Box = function (_a) {
-    var color = _a.color, props = __rest(_a, ["color"]);
-    return react_1.default.createElement(StyledBox, __assign({ color: color }, props), props.children);
+    var color = _a.color, row = _a.row, center = _a.center, left = _a.left, right = _a.right, top = _a.top, bottom = _a.bottom, rowBetween = _a.rowBetween, rowAround = _a.rowAround, rowEvenly = _a.rowEvenly, colBetween = _a.colBetween, colAround = _a.colAround, colEvenly = _a.colEvenly, props = __rest(_a, ["color", "row", "center", "left", "right", "top", "bottom", "rowBetween", "rowAround", "rowEvenly", "colBetween", "colAround", "colEvenly"]);
+    var position = {
+        center: center,
+        left: left,
+        right: right,
+        top: top,
+        bottom: bottom,
+        rowBetween: rowBetween,
+        rowAround: rowAround,
+        rowEvenly: rowEvenly,
+        colBetween: colBetween,
+        colAround: colAround,
+        colEvenly: colEvenly
+    };
+    var direction = row ? 'row' : 'column';
+    var justifyContent = flex_1.getComputedJustifyContent(position, direction);
+    return react_1.default.createElement(StyledBox, __assign({ color: color, flexDirection: direction, justifyContent: justifyContent }, props));
 };
 Box.defaultProps = {
     display: 'flex'
