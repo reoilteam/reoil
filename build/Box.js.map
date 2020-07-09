@@ -1,1 +1,1 @@
-{"version":3,"file":"Box.js","sourceRoot":"","sources":["../src/Box.ts"],"names":[],"mappings":""}
+{"version":3,"file":"Box.js","sourceRoot":"","sources":["../src/Box.tsx"],"names":[],"mappings":";;;;;;;;;AAAA,gDAAyB;AACzB,2DAAoC;AACpC,+CAmBsB;AAEtB,IAAM,GAAG,GAAa;IACpB,OAAO,8BAAC,SAAS,cAEL,CAAA;AACd,CAAC,CAAA;AAYD,IAAM,SAAS,GAAG,gBAAM,CAAC,GAAG,+IAAe,MACvC,EAAM,MACN,EAAK,MACL,EAAK,MACL,EAAI,MACJ,EAAO,MACP,EAAQ,MACR,EAAU,MACV,EAAU,MACV,EAAS,IACZ,KATG,sBAAM,EACN,qBAAK,EACL,qBAAK,EACL,oBAAI,EACJ,uBAAO,EACP,wBAAQ,EACR,0BAAU,EACV,0BAAU,EACV,yBAAS,CACZ,CAAA;AAED,kBAAe,GAAG,CAAA"}

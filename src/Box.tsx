@@ -23,7 +23,7 @@ import {
 
 const Box: React.FC = () => {
   return <StyledBox>
-
+    Box
   </StyledBox>
 }
 
