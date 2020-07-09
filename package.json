@@ -9,7 +9,8 @@
     "build"
   ],
   "scripts": {
-    "build": "yarn run tsc -p ."
+    "build": "yarn run tsc -p .",
+    "start": "yarn run build -w"
   },
   "peerDependencies": {
     "react": "^16.13.1"

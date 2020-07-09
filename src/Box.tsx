@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import {
-  color,
+  colorStyle,
   space,
   layout,
   ColorProps,
@@ -18,28 +18,54 @@ import {
   fontStyle,
   FontFamilyProps,
   FontWeightProps,
-  FontStyleProps
+  FontStyleProps,
+  color,
+  BackgroundProps,
+  background,
+  borderRadius,
+  BorderRadiusProps
 } from 'styled-system'
 
-const Box: React.FC = () => {
-  return <StyledBox>
-    Box
-  </StyledBox>
+interface Props extends StyledBoxType {
+  center?: boolean
+  left?: boolean
+  right?: boolean
+  top?: boolean
+  bottom?: boolean
+  row?: boolean
+  rowBetween?: boolean
+  colBetween?: boolean
+  rowAround?: boolean
+  colAround?: boolean
+  rowEvenly?: boolean
+  colEvenly?: boolean
+  color?: string
+}
+
+const Box: React.FC<Props & ColorProps> = ({color, ...props}) => {
+  return <StyledBox color={color} {...props} />
+}
+
+Box.defaultProps = {
+  display: 'flex'
 }
 
 type StyledBoxType =
-  | ColorProps
-  | SpaceProps
-  | LayoutProps
-  | FlexProps
-  | FlexboxProps
-  | FontSizeProps
-  | FontFamilyProps
-  | FontWeightProps
-  | FontStyleProps
-const StyledBox = styled.div<StyledBoxType>`
-  ${layout}
+  // & ColorProps  // Some issues within this prop
+  & SpaceProps
+  & LayoutProps
+  & FlexProps
+  & FlexboxProps
+  & FontSizeProps
+  & FontFamilyProps
+  & FontWeightProps
+  & FontStyleProps
+  & BackgroundProps
+  & BorderRadiusProps
+const StyledBox = styled.div<StyledBoxType | ColorProps>`
   ${color}
+  ${layout}
+  ${colorStyle}
   ${space}
   ${flex}
   ${flexbox}
@@ -47,6 +73,8 @@ const StyledBox = styled.div<StyledBoxType>`
   ${fontFamily}
   ${fontWeight}
   ${fontStyle}
+  ${background}
+  ${borderRadius}
 `
 
 export default Box
