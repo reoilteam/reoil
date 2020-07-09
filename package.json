@@ -1,0 +1,27 @@
+{
+  "name": "reoil",
+  "description": "🧡Reoil is a low-level react original component library which can be used as wapper to replace <div> <img> etc, also can be wrapper for any other components.",
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "author": "Yokiijay <yokiijay@gmail.com> (https://yokiijay.github.io)",
+  "license": "MIT",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "yarn run tsc -p ."
+  },
+  "peerDependencies": {
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.41",
+    "@types/styled-system": "^5.1.9",
+    "react": "^16.13.1",
+    "typescript": "^3.9.6"
+  },
+  "dependencies": {
+    "@emotion/styled": "^10.0.27",
+    "styled-system": "^5.1.5"
+  }
+}
