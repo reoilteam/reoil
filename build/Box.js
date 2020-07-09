@@ -34,7 +34,7 @@ var styled_1 = __importDefault(require("@emotion/styled"));
 var styled_system_1 = require("styled-system");
 var Box = function (_a) {
     var color = _a.color, props = __rest(_a, ["color"]);
-    return react_1.default.createElement(StyledBox, __assign({ color: color }, props));
+    return react_1.default.createElement(StyledBox, __assign({ color: color }, props), props.children);
 };
 Box.defaultProps = {
     display: 'flex'

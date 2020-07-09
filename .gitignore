@@ -1,4 +1,4 @@
-build
+build/**
 example/node_modules
 
 # Logs

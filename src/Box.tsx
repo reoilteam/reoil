@@ -43,7 +43,7 @@ interface Props extends StyledBoxType {
 }
 
 const Box: React.FC<Props & ColorProps> = ({color, ...props}) => {
-  return <StyledBox color={color} {...props} />
+  return <StyledBox color={color} {...props}>{props.children}</StyledBox>
 }
 
 Box.defaultProps = {
