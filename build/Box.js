@@ -33,8 +33,9 @@ var react_1 = __importDefault(require("react"));
 var styled_1 = __importDefault(require("@emotion/styled"));
 var styled_system_1 = require("styled-system");
 var flex_1 = require("./utils/flex");
+var core_1 = require("@emotion/core");
 var Box = function (_a) {
-    var color = _a.color, row = _a.row, center = _a.center, left = _a.left, right = _a.right, top = _a.top, bottom = _a.bottom, rowBetween = _a.rowBetween, rowAround = _a.rowAround, rowEvenly = _a.rowEvenly, colBetween = _a.colBetween, colAround = _a.colAround, colEvenly = _a.colEvenly, props = __rest(_a, ["color", "row", "center", "left", "right", "top", "bottom", "rowBetween", "rowAround", "rowEvenly", "colBetween", "colAround", "colEvenly"]);
+    var style = _a.style, color = _a.color, row = _a.row, center = _a.center, left = _a.left, right = _a.right, top = _a.top, bottom = _a.bottom, rowBetween = _a.rowBetween, rowAround = _a.rowAround, rowEvenly = _a.rowEvenly, colBetween = _a.colBetween, colAround = _a.colAround, colEvenly = _a.colEvenly, pointer = _a.pointer, textTransform = _a.textTransform, fit = _a.fit, props = __rest(_a, ["style", "color", "row", "center", "left", "right", "top", "bottom", "rowBetween", "rowAround", "rowEvenly", "colBetween", "colAround", "colEvenly", "pointer", "textTransform", "fit"]);
     var position = {
         center: center,
         left: left,
@@ -48,14 +49,17 @@ var Box = function (_a) {
         colAround: colAround,
         colEvenly: colEvenly
     };
-    var direction = row ? 'row' : 'column';
-    var justifyContent = flex_1.getComputedJustifyContent(position, direction);
-    return react_1.default.createElement(StyledBox, __assign({ color: color, flexDirection: direction, justifyContent: justifyContent }, props));
+    var flexDirection = row ? 'row' : 'column';
+    var justifyContent = flex_1.getComputedJustifyContent(position, flexDirection);
+    var alignItems = flex_1.getComputedAlignItems(position, flexDirection);
+    var cursor = pointer ? 'pointer' : 'default';
+    var objectFitCSS = core_1.css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    img, video, audio {\n      width: 100%;\n      height: 100%;\n      object-fit: ", ";\n    }\n  "], ["\n    img, video, audio {\n      width: 100%;\n      height: 100%;\n      object-fit: ", ";\n    }\n  "])), fit);
+    return (react_1.default.createElement(StyledBox, __assign({ color: color, flexDirection: flexDirection, alignItems: alignItems, justifyContent: justifyContent, style: __assign(__assign({}, style), { cursor: cursor, textTransform: textTransform }), css: core_1.css(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n        /* ", "; */\n        font-weight: bold;\n      "], ["\n        /* ", "; */\n        font-weight: bold;\n      "])), objectFitCSS) }, props)));
 };
 Box.defaultProps = {
     display: 'flex'
 };
-var StyledBox = styled_1.default.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n"], ["\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n"])), styled_system_1.color, styled_system_1.layout, styled_system_1.colorStyle, styled_system_1.space, styled_system_1.flex, styled_system_1.flexbox, styled_system_1.fontSize, styled_system_1.fontFamily, styled_system_1.fontWeight, styled_system_1.fontStyle, styled_system_1.background, styled_system_1.borderRadius);
+var StyledBox = styled_1.default.div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n"], ["\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n"])), styled_system_1.color, styled_system_1.layout, styled_system_1.colorStyle, styled_system_1.space, styled_system_1.flex, styled_system_1.flexbox, styled_system_1.fontSize, styled_system_1.fontFamily, styled_system_1.fontWeight, styled_system_1.fontStyle, styled_system_1.background, styled_system_1.borderRadius);
 exports.default = Box;
-var templateObject_1;
+var templateObject_1, templateObject_2, templateObject_3;
 //# sourceMappingURL=Box.js.map

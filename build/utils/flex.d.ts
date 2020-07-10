@@ -14,10 +14,15 @@ declare type Position = {
     colEvenly?: boolean;
 };
 declare type FlexDirection = CSS.FlexDirectionProperty;
-declare type JustifyContentProp = CSS.ContentDistribution | CSS.ContentPosition;
+export declare type JustifyContentProps = CSS.JustifyContentProperty;
+export declare type AlignItemsProps = CSS.AlignItemsProperty;
 interface JustifyContentFN {
-    (position: Position, direction: FlexDirection): JustifyContentProp;
+    (position: Position, direction: FlexDirection): JustifyContentProps;
+}
+interface AlignItemsFN {
+    (position: Position, direction: FlexDirection): AlignItemsProps;
 }
 export declare const getComputedJustifyContent: JustifyContentFN;
+export declare const getComputedAlignItems: AlignItemsFN;
 export {};
 //# sourceMappingURL=flex.d.ts.map

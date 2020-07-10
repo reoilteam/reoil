@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { CSSProperties } from 'react'
 import styled from '@emotion/styled'
 import {
   colorStyle,
@@ -25,9 +25,16 @@ import {
   borderRadius,
   BorderRadiusProps
 } from 'styled-system'
-import { getComputedJustifyContent } from './utils/flex'
+import {
+  getComputedJustifyContent,
+  getComputedAlignItems
+} from './utils/flex'
+import * as CSS from 'csstype'
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core'
 
 interface Props extends StyledBoxType {
+  style?: CSSProperties
   center?: boolean
   left?: boolean
   right?: boolean
@@ -41,9 +48,13 @@ interface Props extends StyledBoxType {
   rowEvenly?: boolean
   colEvenly?: boolean
   color?: string
+  pointer?: Boolean
+  textTransform?: CSS.TextTransformProperty
+  fit?: CSS.ObjectFitProperty
 }
 
 const Box: React.FC<Props & ColorProps> = ({
+  style,
   color,
   row,
   center,
@@ -57,6 +68,9 @@ const Box: React.FC<Props & ColorProps> = ({
   colBetween,
   colAround,
   colEvenly,
+  pointer,
+  textTransform,
+  fit,
   ...props
 }) => {
   const position = {
@@ -72,29 +86,53 @@ const Box: React.FC<Props & ColorProps> = ({
     colAround,
     colEvenly
   }
-  const direction = row ? 'row' : 'column'
+  const flexDirection = row ? 'row' : 'column'
+  const justifyContent = getComputedJustifyContent(position, flexDirection)
+  const alignItems = getComputedAlignItems(position, flexDirection)
+  const cursor = pointer ? 'pointer' : 'default'
+  const objectFitCSS = css`
+    img, video, audio {
+      width: 100%;
+      height: 100%;
+      object-fit: ${fit};
+    }
+  `
 
-  const justifyContent = getComputedJustifyContent(position, direction)  
-
-  return <StyledBox color={color} flexDirection={direction} justifyContent={justifyContent} {...props} />
+  return (
+    <StyledBox
+      color={color}
+      flexDirection={flexDirection}
+      alignItems={alignItems}
+      justifyContent={justifyContent}
+      style={{...style, cursor, textTransform}}
+      css={css`
+        /* ${objectFitCSS}; */
+        font-weight: bold;
+      `}
+      {...props}
+    />
+  )
 }
 
 Box.defaultProps = {
   display: 'flex'
 }
 
+// Props definition for Box
 type StyledBoxType =
   // & ColorProps  // Some issues within this prop
   SpaceProps &
-    LayoutProps &
-    FlexProps &
-    FlexboxProps &
-    FontSizeProps &
-    FontFamilyProps &
-    FontWeightProps &
-    FontStyleProps &
-    BackgroundProps &
-    BorderRadiusProps
+  LayoutProps &
+  FlexProps &
+  FlexboxProps &
+  FontSizeProps &
+  FontFamilyProps &
+  FontWeightProps &
+  FontStyleProps &
+  BackgroundProps &
+  BorderRadiusProps
+
+// Use styled-theme to decorate Box
 const StyledBox = styled.div<StyledBoxType | ColorProps>`
   ${color}
   ${layout}

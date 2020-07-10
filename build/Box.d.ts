@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import { ColorProps, SpaceProps, LayoutProps, FlexProps, FlexboxProps, FontSizeProps, FontFamilyProps, FontWeightProps, FontStyleProps, BackgroundProps, BorderRadiusProps } from 'styled-system';
+import * as CSS from 'csstype';
 interface Props extends StyledBoxType {
+    style?: CSSProperties;
     center?: boolean;
     left?: boolean;
     right?: boolean;
@@ -14,6 +16,9 @@ interface Props extends StyledBoxType {
     rowEvenly?: boolean;
     colEvenly?: boolean;
     color?: string;
+    pointer?: Boolean;
+    textTransform?: CSS.TextTransformProperty;
+    fit?: CSS.ObjectFitProperty;
 }
 declare const Box: React.FC<Props & ColorProps>;
 declare type StyledBoxType = SpaceProps & LayoutProps & FlexProps & FlexboxProps & FontSizeProps & FontFamilyProps & FontWeightProps & FontStyleProps & BackgroundProps & BorderRadiusProps;
