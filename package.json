@@ -21,7 +21,7 @@
     "build:types": "yarn run build:ts --emitDeclarationOnly",
     "build:babel": "yarn run babel src -d dist --extensions \".js,.jsx,.ts,.tsx\"",
     "build": "rm -rf dist && yarn run build:types && yarn run build:babel",
-    "start": "yarn run build --source-maps inline --watch"
+    "start": "yarn run build:types --watch & yarn run build:babel --source-maps inline --watch"
   },
   "peerDependencies": {
     "react": "^16.13.1"

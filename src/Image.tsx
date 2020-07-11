@@ -1,29 +1,61 @@
 import React, { CSSProperties } from 'react'
 import styled from '@emotion/styled'
-import { SizeProps, size } from 'styled-system'
+import { SizeProps, size, width, WidthProps, HeightProps } from 'styled-system'
 import * as CSS from 'csstype'
 
-interface Props extends StyledImageType {
+interface Props {
   style?: CSSProperties
   src: string
   alt?: string
   objectFit?: CSS.ObjectFitProperty
   fit?: boolean // Defaults to 'object-fit: cover'
+  width?: CSS.WidthProperty<number>
+  height?: CSS.HeightProperty<number>
+  minWidth?: CSS.MinWidthProperty<number>
+  minHeight?: CSS.MinHeightProperty<number>
+  maxWidth?: CSS.MaxWidthProperty<number>
+  maxHeight?: CSS.MaxHeightProperty<number>
+  display?: 'inline' | 'block' | 'inline-block' | 'none' | 'unset' | 'initial'
+  borderRadius?: CSS.BorderRadiusProperty<number>
 }
 
-const Image: React.FC<Props> = ({objectFit, fit, ...props}) => {
-
-  return(
-    <StyledImage style={{
-      objectFit: fit&&!objectFit ? 'cover' : objectFit
-    }} {...props} />
+const Image: React.FC<Props> = ({
+  src,
+  alt,
+  objectFit,
+  fit,
+  height,
+  width,
+  minWidth,
+  minHeight,
+  maxWidth,
+  maxHeight,
+  display,
+  borderRadius,
+  ...props
+}) => {
+  return (
+    <img
+      src={src}
+      alt={alt}
+      style={{
+        objectFit: fit && !objectFit ? 'cover' : objectFit,
+        width,
+        height,
+        minWidth,
+        minHeight,
+        maxWidth,
+        maxHeight,
+        display,
+        borderRadius
+      }}
+      {...props}
+    />
   )
 }
 
-type StyledImageType = SizeProps
+// const StyledImage = styled.img`
 
-const StyledImage = styled.image<StyledImageType>`
-  ${size}
-`
+// `
 
 export default Image

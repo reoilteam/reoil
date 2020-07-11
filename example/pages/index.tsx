@@ -1,9 +1,9 @@
 import React from 'react'
-import { Box } from 'reoil'
+import { Box, Image } from 'reoil'
 
 const Home: React.FC = () => {
   return (
-    <Box row>
+    <Box>
       <Box
         paddingY={10}
         paddingX={[10, 14, 18, 24]}
@@ -14,7 +14,6 @@ const Home: React.FC = () => {
         Button
       </Box>
       <Box
-        ml={2}
         paddingY={10}
         paddingX={[10, 14, 18, 24]}
         bg='mediumslateblue'
@@ -25,6 +24,9 @@ const Home: React.FC = () => {
       </Box>
       <Box fit='cover' size={30} borderRadius={10}>
         <img src="https://picsum.photos/500" alt=""/>
+      </Box>
+      <Box>
+        <Image src='https://picsum.photos/200' />
       </Box>
     </Box>
   )
