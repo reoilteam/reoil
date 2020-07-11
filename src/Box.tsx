@@ -30,7 +30,7 @@ import {
   getComputedAlignItems
 } from './utils/flex'
 import * as CSS from 'csstype'
-/** @jsx jsx */
+// /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 
 interface Props extends StyledBoxType {
@@ -106,8 +106,8 @@ const Box: React.FC<Props & ColorProps> = ({
       justifyContent={justifyContent}
       style={{...style, cursor, textTransform}}
       css={css`
-        /* ${objectFitCSS}; */
-        font-weight: bold;
+        ${fit && objectFitCSS};
+        ${fit && props.borderRadius && `overflow: hidden` };
       `}
       {...props}
     />

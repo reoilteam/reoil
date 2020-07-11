@@ -1,7 +1,5 @@
 import React from 'react'
-import { Box, Solid } from 'reoil'
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core'
+import { Box } from 'reoil'
 
 const Home: React.FC = () => {
   return (
@@ -25,10 +23,9 @@ const Home: React.FC = () => {
         pointer>
         Button
       </Box>
-      <Box fit='cover' size={30}>
+      <Box fit='cover' size={30} borderRadius={10}>
         <img src="https://picsum.photos/500" alt=""/>
       </Box>
-      <Solid>Solid</Solid>
     </Box>
   )
 }
