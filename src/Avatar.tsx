@@ -1,22 +1,28 @@
 import React, { ImgHTMLAttributes } from 'react'
-import Box from './Box'
-import styled from '@emotion/styled'
+import Box, {BoxProps} from './Box'
+import Image, {ImageProps} from './Image'
 
-interface Props {
-  src?: string
-  alt?: string
+interface Props extends BoxProps {
+  src?: string,
+  /**Generate random pictures from https://picsum.photos/ for quick demonstration.*/
+  random?: boolean
 }
 
-const src:Props = {
-  src: 'dasd'
-}
+const Avatar: React.FC<Props> = ({src, children, random, ...props}) => {
+  
 
-const Avatar: React.FC = ({...props}) => {
   return(
-    <Box>
-      <img src="" alt=""/>
+    <Box {...props} center={children?true:false}>
+      {src ? <Image src={src} /> : children}
     </Box>
   )
+}
+
+Avatar.defaultProps = {
+  borderRadius: '50%',
+  cover: true,
+  size: 34,
+  backgroundColor: 'whitesmoke'
 }
 
 export default Avatar

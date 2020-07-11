@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Image } from 'reoil'
+import { Box, Image, Avatar } from 'reoil'
 
 const Home: React.FC = () => {
   return (
@@ -28,10 +28,8 @@ const Home: React.FC = () => {
       <Box size={50} cover borderRadius={20}>
         <Image src='https://picsum.photos/200'/>
       </Box>
-      <Image src='https://picsum.photos/200' width={100} height={200} cover />
-      <Box>
-        <h1>Hello</h1>
-      </Box>
+      <Image src='https://picsum.photos/200' width={100} height={200} borderRadius={4} cover />
+      <Avatar src='https://picsum.photos/seed/106/200' />
     </Box>
   )
 }

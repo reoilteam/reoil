@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { SizeProps, size, width, WidthProps, HeightProps } from 'styled-system'
 import * as CSS from 'csstype'
 
-interface Props {
+export interface ImageProps {
   style?: CSSProperties
   src: string
   alt?: string
@@ -20,7 +20,7 @@ interface Props {
   borderRadius?: CSS.BorderRadiusProperty<number>
 }
 
-const Image: React.FC<Props> = ({
+const Image: React.FC<ImageProps> = ({
   src,
   alt,
   objectFit,

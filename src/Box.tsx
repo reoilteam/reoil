@@ -23,7 +23,15 @@ import {
   BackgroundProps,
   background,
   borderRadius,
-  BorderRadiusProps
+  BorderRadiusProps,
+  boxShadow,
+  BoxShadowProps,
+  textShadow,
+  TextShadowProps,
+  textAlign,
+  TextAlignProps,
+  border,
+  BorderProps
 } from 'styled-system'
 import {
   getComputedJustifyContent,
@@ -33,7 +41,7 @@ import * as CSS from 'csstype'
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 
-interface Props extends StyledBoxType {
+export interface BoxProps extends StyledBoxType, ColorProps {
   style?: CSSProperties
   center?: boolean
   left?: boolean
@@ -55,7 +63,7 @@ interface Props extends StyledBoxType {
   cover?: boolean
 }
 
-const Box: React.FC<Props & ColorProps> = ({
+const Box: React.FC<BoxProps> = ({
   style,
   color,
   row,
@@ -135,7 +143,11 @@ type StyledBoxType =
   FontWeightProps &
   FontStyleProps &
   BackgroundProps &
-  BorderRadiusProps
+  BorderRadiusProps &
+  BoxShadowProps &
+  TextShadowProps &
+  TextAlignProps &
+  BorderProps
 
 // Use styled-theme to decorate Box
 const StyledBox = styled.div<StyledBoxType | ColorProps>`
@@ -151,6 +163,10 @@ const StyledBox = styled.div<StyledBoxType | ColorProps>`
   ${fontStyle}
   ${background}
   ${borderRadius}
+  ${boxShadow}
+  ${textShadow}
+  ${textAlign}
+  ${border}
 `
 
 export default Box
