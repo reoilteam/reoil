@@ -25,8 +25,12 @@ const Home: React.FC = () => {
       <Box fit='cover' size={30} borderRadius={10}>
         <img src="https://picsum.photos/500" alt=""/>
       </Box>
+      <Box size={50} cover borderRadius={20}>
+        <Image src='https://picsum.photos/200'/>
+      </Box>
+      <Image src='https://picsum.photos/200' width={100} height={200} cover />
       <Box>
-        <Image src='https://picsum.photos/200' />
+        <h1>Hello</h1>
       </Box>
     </Box>
   )

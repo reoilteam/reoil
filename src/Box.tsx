@@ -30,7 +30,7 @@ import {
   getComputedAlignItems
 } from './utils/flex'
 import * as CSS from 'csstype'
-// /** @jsx jsx */
+/** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 
 interface Props extends StyledBoxType {
@@ -50,7 +50,9 @@ interface Props extends StyledBoxType {
   color?: string
   pointer?: Boolean
   textTransform?: CSS.TextTransformProperty
+  objectFit?: CSS.ObjectFitProperty
   fit?: CSS.ObjectFitProperty
+  cover?: boolean
 }
 
 const Box: React.FC<Props & ColorProps> = ({
@@ -70,7 +72,9 @@ const Box: React.FC<Props & ColorProps> = ({
   colEvenly,
   pointer,
   textTransform,
+  objectFit,
   fit,
+  cover,
   ...props
 }) => {
   const position = {
@@ -89,12 +93,13 @@ const Box: React.FC<Props & ColorProps> = ({
   const flexDirection = row ? 'row' : 'column'
   const justifyContent = getComputedJustifyContent(position, flexDirection)
   const alignItems = getComputedAlignItems(position, flexDirection)
-  const cursor = pointer ? 'pointer' : 'default'
+  const cursor = pointer ? 'pointer' : undefined
+
   const objectFitCSS = css`
     img, video, audio {
       width: 100%;
       height: 100%;
-      object-fit: ${fit};
+      object-fit: ${cover ? 'cover' : fit || objectFit};
     }
   `
 
@@ -106,8 +111,8 @@ const Box: React.FC<Props & ColorProps> = ({
       justifyContent={justifyContent}
       style={{...style, cursor, textTransform}}
       css={css`
-        ${fit && objectFitCSS};
-        ${fit && props.borderRadius && `overflow: hidden` };
+        ${cover || fit || objectFit ? objectFitCSS : null};
+        ${cover || fit || objectFit && props.borderRadius ? `overflow: hidden` : null};
       `}
       {...props}
     />

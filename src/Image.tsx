@@ -8,7 +8,8 @@ interface Props {
   src: string
   alt?: string
   objectFit?: CSS.ObjectFitProperty
-  fit?: boolean // Defaults to 'object-fit: cover'
+  fit?: CSS.ObjectFitProperty,
+  cover?: boolean,
   width?: CSS.WidthProperty<number>
   height?: CSS.HeightProperty<number>
   minWidth?: CSS.MinWidthProperty<number>
@@ -24,6 +25,7 @@ const Image: React.FC<Props> = ({
   alt,
   objectFit,
   fit,
+  cover,
   height,
   width,
   minWidth,
@@ -34,12 +36,17 @@ const Image: React.FC<Props> = ({
   borderRadius,
   ...props
 }) => {
+  const objectFitStyle = ():any => {
+    if(cover) return 'cover'
+    if(fit || objectFit) return fit || objectFit
+  }
+
   return (
     <img
       src={src}
       alt={alt}
       style={{
-        objectFit: fit && !objectFit ? 'cover' : objectFit,
+        objectFit: objectFitStyle(),
         width,
         height,
         minWidth,
