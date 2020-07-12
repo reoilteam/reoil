@@ -41,8 +41,9 @@ import * as CSS from 'csstype'
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 
-export interface BoxProps extends StyledBoxType, ColorProps {
-  style?: CSSProperties
+export interface BoxProps extends StyledBoxType, ColorProps, React.HTMLAttributes<HTMLDivElement> {
+  // className?: string
+  // style?: CSSProperties
   center?: boolean
   left?: boolean
   right?: boolean
@@ -61,6 +62,7 @@ export interface BoxProps extends StyledBoxType, ColorProps {
   objectFit?: CSS.ObjectFitProperty
   fit?: CSS.ObjectFitProperty
   cover?: boolean
+  transition?: boolean | CSS.TransitionProperty
 }
 
 const Box: React.FC<BoxProps> = ({
@@ -83,6 +85,7 @@ const Box: React.FC<BoxProps> = ({
   objectFit,
   fit,
   cover,
+  transition,
   ...props
 }) => {
   const position = {
@@ -102,6 +105,7 @@ const Box: React.FC<BoxProps> = ({
   const justifyContent = getComputedJustifyContent(position, flexDirection)
   const alignItems = getComputedAlignItems(position, flexDirection)
   const cursor = pointer ? 'pointer' : undefined
+  const transitionStyle = typeof transition === 'boolean' ? '.4s' : typeof transition === 'string' ? transition : undefined
 
   const objectFitCSS = css`
     img, video, audio {
@@ -117,7 +121,7 @@ const Box: React.FC<BoxProps> = ({
       flexDirection={flexDirection}
       alignItems={alignItems}
       justifyContent={justifyContent}
-      style={{...style, cursor, textTransform}}
+      style={{...style, cursor, textTransform, transition: transitionStyle}}
       css={css`
         ${cover || fit || objectFit ? objectFitCSS : null};
         ${cover || fit || objectFit && props.borderRadius ? `overflow: hidden` : null};

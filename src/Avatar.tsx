@@ -9,7 +9,7 @@ interface Props extends BoxProps {
 }
 
 const Avatar: React.FC<Props> = ({src, children, random, ...props}) => {
-  
+
 
   return(
     <Box {...props} center={children?true:false}>
