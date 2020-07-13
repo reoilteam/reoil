@@ -41,7 +41,7 @@ import * as CSS from 'csstype'
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 
-export interface BoxProps extends StyledBoxType, ColorProps, React.HTMLAttributes<HTMLDivElement> {
+export interface BoxProps extends StyledBoxType, ColorProps {
   // className?: string
   // style?: CSSProperties
   center?: boolean
@@ -65,7 +65,7 @@ export interface BoxProps extends StyledBoxType, ColorProps, React.HTMLAttribute
   transition?: boolean | CSS.TransitionProperty
 }
 
-const Box: React.FC<BoxProps> = ({
+const Box: React.FC<BoxProps & HTMLDivElement> = ({
   style,
   color,
   row,
