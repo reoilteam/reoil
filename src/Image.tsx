@@ -1,12 +1,10 @@
-import React, { CSSProperties } from 'react'
+import React, { CSSProperties, HTMLAttributes, ImgHTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { SizeProps, size, width, WidthProps, HeightProps } from 'styled-system'
 import * as CSS from 'csstype'
 
 export interface ImageProps {
-  style?: CSSProperties
   src: string
-  alt?: string
   objectFit?: CSS.ObjectFitProperty
   fit?: CSS.ObjectFitProperty,
   cover?: boolean,
@@ -20,7 +18,7 @@ export interface ImageProps {
   borderRadius?: CSS.BorderRadiusProperty<number>
 }
 
-const Image: React.FC<ImageProps> = ({
+const Image: React.FC<ImageProps & ImgHTMLAttributes<HTMLImageElement>> = ({
   src,
   alt,
   objectFit,

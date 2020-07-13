@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react'
+import React, { HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import {
   colorStyle,
@@ -65,7 +65,7 @@ export interface BoxProps extends StyledBoxType, ColorProps {
   transition?: boolean | CSS.TransitionProperty
 }
 
-const Box: React.FC<BoxProps & HTMLDivElement> = ({
+const Box: React.FC<BoxProps & HTMLAttributes<HTMLDivElement>> = ({
   style,
   color,
   row,
