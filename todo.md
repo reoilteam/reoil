@@ -1,4 +1,5 @@
-<!-- 1. Box fullWidth -->
-2. alignX alignY
-3. as props
-<!-- 4. left right bottom top when position:absolute -->
+1. Box fullWidth ✅
+2. alignX alignY 
+3. as props 
+4. left right bottom top when position:absolute ✅
+5. Inspect component ✅

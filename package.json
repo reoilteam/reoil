@@ -11,6 +11,7 @@
   ],
   "version": "0.0.15",
   "main": "dist/index.js",
+  "module": "dist/index.es.js",
   "author": "Yokiijay <yokiijay@gmail.com> (https://yokiijay.github.io)",
   "license": "MIT",
   "files": [
@@ -38,6 +39,8 @@
     "babel-preset-minify": "^0.5.1",
     "csstype": "^2.6.11",
     "react": "^16.13.1",
+    "rollup": "^2.21.0",
+    "rollup-plugin-babel": "^4.4.0",
     "typescript": "^3.9.6"
   },
   "dependencies": {
