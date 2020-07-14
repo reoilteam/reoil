@@ -1251,13 +1251,6 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-"@types/styled-system@^5.1.9":
-  version "5.1.9"
-  resolved "https://registry.npmjs.org/@types/styled-system/-/styled-system-5.1.9.tgz#8baac8f6eca9e0bd5768c175ca5ce1f2d6f61ade"
-  integrity sha512-QlWv6tmQV8dqk8s+LSLb9QAtmuQEnfv4f8lKKZkMgDqRFVmxJDBwEw0u4zhpxp56u0hdR+TCIk9dGfOw3TkCoQ==
-  dependencies:
-    csstype "^2.6.9"
-
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
   resolved "https://registry.npmjs.org/@webassemblyjs/ast/-/ast-1.9.0.tgz#bd850604b4042459a5a41cd7d338cbed695ed964"
@@ -2467,7 +2460,7 @@ csso@^4.0.2:
   dependencies:
     css-tree "1.0.0-alpha.39"
 
-csstype@^2.2.0, csstype@^2.5.7, csstype@^2.6.9:
+csstype@^2.2.0, csstype@^2.5.7:
   version "2.6.11"
   resolved "https://registry.npmjs.org/csstype/-/csstype-2.6.11.tgz#452f4d024149ecf260a852b025e36562a253ffc5"
   integrity sha512-l8YyEC9NBkSm783PFTvh0FmJy7s5pFKrDp49ZL7zBGX3fWkO+N4EEyan1qqp8cwPLDcD0OSdyY6hAMoxp34JFw==
@@ -4953,6 +4946,15 @@ remove-trailing-separator@^1.0.1:
   version "1.1.0"
   resolved "https://registry.npmjs.org/remove-trailing-separator/-/remove-trailing-separator-1.1.0.tgz#c24bce2a283adad5bc3f58e0d48249b92379d8ef"
   integrity sha1-wkvOKig62tW8P1jg1IJJuSN52O8=
+
+reoil@^0.0.16:
+  version "0.0.16"
+  resolved "https://registry.npmjs.org/reoil/-/reoil-0.0.16.tgz#cb948d6ec5135b69470f15db6b51a93c626f591c"
+  integrity sha512-EXXwS4Vb322mhYg/HPobINlPvSnhKHc/gQ4zeQmlhCCHv5uoQI+MexcN1Cno/mB18lb2/WlMhSMuqD6L4Cl6sQ==
+  dependencies:
+    "@emotion/core" "^10.0.28"
+    "@emotion/styled" "^10.0.27"
+    styled-system "^5.1.5"
 
 repeat-element@^1.1.2:
   version "1.1.3"

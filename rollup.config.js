@@ -13,12 +13,12 @@ const options = {
     {
       file: pkg.main,
       format: 'cjs',
-      sourcemap: true
+      // sourcemap: true
     },
     {
       file: pkg.module,
       format: 'esm',
-      sourcemap: true
+      // sourcemap: true
     }
   ],
   plugins: [

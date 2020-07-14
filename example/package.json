@@ -8,13 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.28",
-    "@emotion/styled": "^10.0.27",
-    "@types/styled-system": "^5.1.9",
     "next": "9.4.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "styled-system": "^5.1.5"
+    "reoil": "^0.0.16"
   },
   "devDependencies": {
     "@types/node": "^14.0.20",

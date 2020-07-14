@@ -29,19 +29,22 @@ const Inspect: React.FC = () => {
       width: '100%',
       height: '100%',
       boxShadow: '0 0 0 1px rgba(255, 0, 255, 0.6)',
-      background: 'rgba(255, 0, 255, 0.1)',
+      background: 'rgba(255, 0, 255, 0.08)',
       top: 0,
       left: 0,
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       color: 'transparent',
+      textShadow: '0 2px 5px rgba(0,0,0,.4)',
       fontSize: 12,
-      transition: '.4s'
+      transition: '.4s',
+      zIndex: 9999
     }} ref={ref} css={css`
       &:hover {
-        background: rgba(255, 105, 180, .8) !important;
+        background: rgba(255, 105, 180, .6) !important;
         color: white !important;
+        backdrop-filter: blur(4px);
       }
     `}>
       {info.width} x {info.height}

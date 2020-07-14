@@ -22,8 +22,9 @@
     "build:types": "yarn run build:ts --emitDeclarationOnly",
     "build:babel": "yarn run babel src -d dist --extensions \".js,.jsx,.ts,.tsx\"",
     "build": "rm -rf dist && yarn run build:types && yarn run build:babel",
-    "build:rollup": "yarn run rollup -c",
-    "start": "yarn run build:types --watch & yarn run build:babel --source-maps inline --watch"
+    "build:rollup": "rm -rf dist && yarn run build:types && yarn run rollup -c",
+    "start": "rm -rf dist && yarn run build:types --watch & yarn run build:babel --source-maps inline --watch",
+    "start:rollup": "rm -rf dist && yarn run build:types --watch & yarn run build:rollup --sourcemap --watch"
   },
   "peerDependencies": {
     "react": "^16.13.1"
