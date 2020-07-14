@@ -22,6 +22,7 @@
     "build:types": "yarn run build:ts --emitDeclarationOnly",
     "build:babel": "yarn run babel src -d dist --extensions \".js,.jsx,.ts,.tsx\"",
     "build": "rm -rf dist && yarn run build:types && yarn run build:babel",
+    "build:rollup": "yarn run rollup -c",
     "start": "yarn run build:types --watch & yarn run build:babel --source-maps inline --watch"
   },
   "peerDependencies": {
@@ -31,8 +32,12 @@
     "@babel/cli": "^7.10.4",
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
     "@emotion/babel-preset-css-prop": "^10.0.27",
+    "@rollup/plugin-babel": "^5.1.0",
+    "@rollup/plugin-commonjs": "^14.0.0",
+    "@rollup/plugin-node-resolve": "^8.4.0",
     "@types/react": "^16.9.41",
     "@types/resize-observer-browser": "^0.1.3",
     "@types/styled-system": "^5.1.9",
@@ -40,7 +45,7 @@
     "csstype": "^2.6.11",
     "react": "^16.13.1",
     "rollup": "^2.21.0",
-    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-terser": "^6.1.0",
     "typescript": "^3.9.6"
   },
   "dependencies": {
