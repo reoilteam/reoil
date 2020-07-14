@@ -5,7 +5,7 @@
       "isTSX": true,
       "allExtensions": true
     }],
-    "@babel/preset-react",
-    "@emotion/babel-preset-css-prop"
+    "@babel/preset-react"
+    // "@emotion/babel-preset-css-prop"
   ]
 }

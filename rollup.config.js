@@ -12,11 +12,13 @@ const options = {
   output: [
     {
       file: pkg.main,
-      format: 'cjs'
+      format: 'cjs',
+      sourcemap: true
     },
     {
       file: pkg.module,
       format: 'esm',
+      sourcemap: true
     }
   ],
   plugins: [
@@ -28,7 +30,7 @@ const options = {
       babelHelpers: 'bundled',
       extensions
     }),
-    // terser(),
+    terser(),
   ],
   external: [
     'react',
