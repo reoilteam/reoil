@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import React, { HTMLAttributes, DetailedHTMLProps } from 'react'
 import styled from '@emotion/styled'
 import {
   colorStyle,
@@ -33,22 +33,18 @@ import {
   border,
   BorderProps
 } from 'styled-system'
-import {
-  getComputedJustifyContent,
-  getComputedAlignItems
-} from './utils/flex'
+import { getComputedJustifyContent, getComputedAlignItems } from './utils/flex'
 import * as CSS from 'csstype'
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
+import Inspect from './Inspect'
 
 export interface BoxProps extends StyledBoxType, ColorProps {
-  // className?: string
-  // style?: CSSProperties
   center?: boolean
-  left?: boolean
-  right?: boolean
-  top?: boolean
-  bottom?: boolean
+  left?: boolean | string | number
+  right?: boolean | string | number
+  top?: boolean | string | number
+  bottom?: boolean | string | number
   row?: boolean
   rowBetween?: boolean
   colBetween?: boolean
@@ -63,9 +59,12 @@ export interface BoxProps extends StyledBoxType, ColorProps {
   fit?: CSS.ObjectFitProperty
   cover?: boolean
   transition?: boolean | CSS.TransitionProperty
+  position?: CSS.PositionProperty
+  fullWidth?: boolean
+  inspect?: boolean
 }
 
-const Box: React.FC<BoxProps & HTMLAttributes<HTMLDivElement>> = ({
+const Box: React.FC<BoxProps & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>> = ({
   style,
   color,
   row,
@@ -86,14 +85,17 @@ const Box: React.FC<BoxProps & HTMLAttributes<HTMLDivElement>> = ({
   fit,
   cover,
   transition,
+  position,
+  fullWidth,
+  inspect,
   ...props
 }) => {
-  const position = {
+  const childrenPosition = {
     center,
-    left,
-    right,
-    top,
-    bottom,
+    left: typeof left === 'boolean' && left ? left : undefined,
+    right: typeof right === 'boolean' && right ? right : undefined,
+    top: typeof top === 'boolean' && top ? top : undefined,
+    bottom: typeof bottom === 'boolean' && bottom ? bottom : undefined,
     rowBetween,
     rowAround,
     rowEvenly,
@@ -102,13 +104,23 @@ const Box: React.FC<BoxProps & HTMLAttributes<HTMLDivElement>> = ({
     colEvenly
   }
   const flexDirection = row ? 'row' : 'column'
-  const justifyContent = getComputedJustifyContent(position, flexDirection)
-  const alignItems = getComputedAlignItems(position, flexDirection)
+  const justifyContent = getComputedJustifyContent(
+    childrenPosition,
+    flexDirection
+  )
+  const alignItems = getComputedAlignItems(childrenPosition, flexDirection)
   const cursor = pointer ? 'pointer' : undefined
-  const transitionStyle = typeof transition === 'boolean' ? '.4s' : typeof transition === 'string' ? transition : undefined
+  const transitionStyle =
+    typeof transition === 'boolean'
+      ? '.4s'
+      : typeof transition === 'string'
+      ? transition
+      : undefined
 
   const objectFitCSS = css`
-    img, video, audio {
+    img,
+    video,
+    audio {
       width: 100%;
       height: 100%;
       object-fit: ${cover ? 'cover' : fit || objectFit};
@@ -121,13 +133,30 @@ const Box: React.FC<BoxProps & HTMLAttributes<HTMLDivElement>> = ({
       flexDirection={flexDirection}
       alignItems={alignItems}
       justifyContent={justifyContent}
-      style={{...style, cursor, textTransform, transition: transitionStyle}}
+      style={{
+        ...style,
+        cursor,
+        textTransform,
+        transition: transitionStyle,
+        position,
+        left: typeof left!=='boolean' ? left : undefined,
+        right: typeof right!=='boolean' ? right : undefined,
+        top: typeof top!=='boolean' ? top : undefined,
+        bottom: typeof bottom!=='boolean' ? bottom : undefined,
+        width: fullWidth ? '100%' : undefined
+      }}
       css={css`
         ${cover || fit || objectFit ? objectFitCSS : null};
-        ${cover || fit || objectFit && props.borderRadius ? `overflow: hidden` : null};
+        ${cover || fit || (objectFit && props.borderRadius)
+          ? `overflow: hidden`
+          : null};
+        position: relative
       `}
       {...props}
-    />
+    >
+      {inspect&&<Inspect />}
+      {props.children}
+    </StyledBox>
   )
 }
 
@@ -136,9 +165,7 @@ Box.defaultProps = {
 }
 
 // Props definition for Box
-type StyledBoxType =
-  // & ColorProps  // Some issues within this prop
-  SpaceProps &
+type StyledBoxType = SpaceProps &
   LayoutProps &
   FlexProps &
   FlexboxProps &

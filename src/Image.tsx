@@ -1,6 +1,4 @@
-import React, { CSSProperties, HTMLAttributes, ImgHTMLAttributes } from 'react'
-import styled from '@emotion/styled'
-import { SizeProps, size, width, WidthProps, HeightProps } from 'styled-system'
+import React, { ImgHTMLAttributes, DetailedHTMLProps } from 'react'
 import * as CSS from 'csstype'
 
 export interface ImageProps {
@@ -18,7 +16,7 @@ export interface ImageProps {
   borderRadius?: CSS.BorderRadiusProperty<number>
 }
 
-const Image: React.FC<ImageProps & ImgHTMLAttributes<HTMLImageElement>> = ({
+const Image: React.FC<ImageProps & DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>> = ({
   src,
   alt,
   objectFit,

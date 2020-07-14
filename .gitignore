@@ -1,5 +1,6 @@
 demo
 example/node_modules
+**/node_modules
 
 # Logs
 logs
