@@ -1,7 +1,7 @@
 import React, { ImgHTMLAttributes, DetailedHTMLProps } from 'react';
 import * as CSS from 'csstype';
 export interface ImageProps {
-    src: 'random' | string & {};
+    src?: 'random' | string & {};
     objectFit?: CSS.ObjectFitProperty;
     fit?: CSS.ObjectFitProperty;
     cover?: boolean;

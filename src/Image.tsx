@@ -2,7 +2,7 @@ import React, { ImgHTMLAttributes, DetailedHTMLProps } from 'react'
 import * as CSS from 'csstype'
 
 export interface ImageProps {
-  src: 'random' | string&{}
+  src?: 'random' | string&{}
   objectFit?: CSS.ObjectFitProperty
   fit?: CSS.ObjectFitProperty,
   cover?: boolean,
@@ -43,7 +43,7 @@ const Image: React.FC<ImageProps & DetailedHTMLProps<ImgHTMLAttributes<HTMLImage
 
   return (
     <img
-      src={src === 'random' ? `https://picsum.photos/seed/${randomSeed(0,3000)}/300` : src}
+      src={src ? src === 'random' ? `https://picsum.photos/seed/${randomSeed(0,3000)}/300` : src : `https://picsum.photos/seed/${randomSeed(0,3000)}/300`}
       alt={alt}
       style={{
         objectFit: objectFitStyle(),

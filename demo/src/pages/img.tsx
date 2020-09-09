@@ -23,6 +23,10 @@ const ImgPage: React.FC<RouteComponentProps> = () => {
       <Box inspect>
         <Image src='random' />
       </Box>
+      <Box>
+        <h1>随机图片</h1>
+        <Image />
+      </Box>
     </Box>
   )
 }
