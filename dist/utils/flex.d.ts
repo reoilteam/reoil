@@ -22,6 +22,7 @@ interface JustifyContentFN {
         flexDirection: FlexDirection;
         alignX?: JustifyContentProps | AlignItemsProps;
         alignY?: JustifyContentProps | AlignItemsProps;
+        stretch?: boolean;
     }): JustifyContentProps;
 }
 interface AlignItemsFN {
@@ -30,6 +31,7 @@ interface AlignItemsFN {
         flexDirection: FlexDirection;
         alignX?: JustifyContentProps | AlignItemsProps;
         alignY?: JustifyContentProps | AlignItemsProps;
+        stretch?: boolean;
     }): AlignItemsProps;
 }
 export declare const getComputedJustifyContent: JustifyContentFN;

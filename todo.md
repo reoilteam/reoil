@@ -1,5 +1,5 @@
 1. Box fullWidth ✅
-2. Box Stretch
+2. Box Stretch ✅
 3. Box gradient
 4. export Props
 5. alignX alignY ✅ 

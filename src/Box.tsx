@@ -64,6 +64,7 @@ export interface BoxProps extends StyledBoxType, ColorProps {
   inspect?: boolean
   alignX?: CSS.JustifyContentProperty | CSS.AlignItemsProperty
   alignY?: CSS.JustifyContentProperty | CSS.AlignItemsProperty
+  stretch?: boolean
 }
 
 const Box: React.FC<
@@ -94,6 +95,7 @@ const Box: React.FC<
   inspect,
   alignX,
   alignY,
+  stretch,
   ...props
 }) => {
   const childrenPosition = {
@@ -114,13 +116,15 @@ const Box: React.FC<
     childrenPosition,
     flexDirection,
     alignX,
-    alignY
+    alignY,
+    stretch
   })
   const alignItems = getComputedAlignItems({
     childrenPosition,
     flexDirection,
     alignX,
-    alignY
+    alignY,
+    stretch
   })
   const cursor = pointer ? 'pointer' : undefined
   const transitionStyle =

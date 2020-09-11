@@ -26,6 +26,7 @@ interface JustifyContentFN {
     flexDirection: FlexDirection
     alignX?: JustifyContentProps | AlignItemsProps
     alignY?: JustifyContentProps | AlignItemsProps
+    stretch?: boolean
   }): JustifyContentProps
 }
 interface AlignItemsFN {
@@ -34,6 +35,7 @@ interface AlignItemsFN {
     flexDirection: FlexDirection
     alignX?: JustifyContentProps | AlignItemsProps
     alignY?: JustifyContentProps | AlignItemsProps
+    stretch?: boolean
   }): AlignItemsProps
 }
 
@@ -42,7 +44,8 @@ export const getComputedJustifyContent: JustifyContentFN = ({
   childrenPosition,
   flexDirection: direction,
   alignX,
-  alignY
+  alignY,
+  stretch
 }) => {
   if (direction === 'row') {
     if(alignX) return alignX
@@ -85,9 +88,11 @@ export const getComputedAlignItems: AlignItemsFN = ({
   childrenPosition,
   flexDirection: direction,
   alignX,
-  alignY
+  alignY,
+  stretch
 }) => {
   if (direction === 'column') {
+    if(stretch) return 'stretch'
     if(alignX) return alignX
 
     return childrenPosition.left
@@ -105,6 +110,7 @@ export const getComputedAlignItems: AlignItemsFN = ({
       : 'flex-start'
   }
   if (direction === 'row') {
+    if(stretch) return 'stretch'
     if(alignY) return alignY
 
     return childrenPosition.top

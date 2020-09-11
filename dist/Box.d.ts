@@ -26,6 +26,7 @@ export interface BoxProps extends StyledBoxType, ColorProps {
     inspect?: boolean;
     alignX?: CSS.JustifyContentProperty | CSS.AlignItemsProperty;
     alignY?: CSS.JustifyContentProperty | CSS.AlignItemsProperty;
+    stretch?: boolean;
 }
 declare const Box: React.FC<BoxProps & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>>;
 declare type StyledBoxType = SpaceProps & LayoutProps & FlexProps & FlexboxProps & FontSizeProps & FontFamilyProps & FontWeightProps & FontStyleProps & BackgroundProps & BorderRadiusProps & BoxShadowProps & TextShadowProps & TextAlignProps & BorderProps;

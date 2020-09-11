@@ -17,7 +17,7 @@ const BoxAlign: React.FC<RouteComponentProps> = () => {
         </Box>
       </Box>
 
-      <Box className="container" color="white" alignX='flex-end' height={50} alignY='flex-end'>
+      <Box className="container" color="white" stretch>
         <Box bg='slateblue'>
           After II: With stretch prop provided at Parent Container Box, the child Box will stretch the width depend on container.
         </Box>
