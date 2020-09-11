@@ -65,6 +65,9 @@ export interface BoxProps extends StyledBoxType, ColorProps {
   alignX?: CSS.JustifyContentProperty | CSS.AlignItemsProperty
   alignY?: CSS.JustifyContentProperty | CSS.AlignItemsProperty
   stretch?: boolean
+  boxSizing?: CSS.BoxSizingProperty
+  borderBox?: boolean
+  contentBox?: boolean
 }
 
 const Box: React.FC<
@@ -96,6 +99,9 @@ const Box: React.FC<
   alignX,
   alignY,
   stretch,
+  boxSizing,
+  borderBox,
+  contentBox,
   ...props
 }) => {
   const childrenPosition = {
@@ -151,7 +157,6 @@ const Box: React.FC<
       alignItems={alignItems}
       justifyContent={justifyContent}
       style={{
-        ...style,
         cursor,
         textTransform,
         transition: transitionStyle,
@@ -160,7 +165,9 @@ const Box: React.FC<
         right: typeof right !== 'boolean' ? right : undefined,
         top: typeof top !== 'boolean' ? top : undefined,
         bottom: typeof bottom !== 'boolean' ? bottom : undefined,
-        width: fullWidth ? '100%' : undefined
+        width: fullWidth ? '100%' : undefined,
+        boxSizing: borderBox&&'border-box' || contentBox&&'content-box' || boxSizing,
+        ...style,
       }}
       css={css`
         ${cover || fit || objectFit ? objectFitCSS : null};
