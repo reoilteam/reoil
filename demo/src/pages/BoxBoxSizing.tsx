@@ -13,7 +13,7 @@ const BoxBoxSizing: React.FC<RouteComponentProps> = () => {
         With borderBox prop
       </Box>
       <Box size={100}></Box>
-      <Box size={100} background='tomato' center color='white' padding={20} boxSizing='border-box'>
+      <Box size={100} background='tomato' center color='white' padding={20} boxSizing='border-box' pointerEvents='none'>
         Also can provide boxSizing
       </Box>
     </>

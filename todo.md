@@ -7,8 +7,10 @@
 7. left right bottom top when position:absolute ✅
 8. Inspect component ✅
 9. svg Icon component <Icon img='...' />
-10. box-sizing <Box borderBox />
+10. box-sizing <Box borderBox /> ✅
 11. Media component <Media />
-12. Box {...props}
-13. user-select
-14. enhanced skeleton
+12. Box {...props} ✅
+13. user-select ✅
+14. pointerEvents ✅
+15. enhanced skeleton
+16. Copy component

@@ -68,6 +68,8 @@ export interface BoxProps extends StyledBoxType, ColorProps {
   boxSizing?: CSS.BoxSizingProperty
   borderBox?: boolean
   contentBox?: boolean
+  userSelect?: CSS.UserSelectProperty
+  pointerEvents?: CSS.PointerEventsProperty
 }
 
 const Box: React.FC<
@@ -102,6 +104,8 @@ const Box: React.FC<
   boxSizing,
   borderBox,
   contentBox,
+  userSelect,
+  pointerEvents,
   ...props
 }) => {
   const childrenPosition = {
@@ -167,6 +171,8 @@ const Box: React.FC<
         bottom: typeof bottom !== 'boolean' ? bottom : undefined,
         width: fullWidth ? '100%' : undefined,
         boxSizing: borderBox&&'border-box' || contentBox&&'content-box' || boxSizing,
+        userSelect,
+        pointerEvents,
         ...style,
       }}
       css={css`
