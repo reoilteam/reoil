@@ -1,10 +1,14 @@
 1. Box fullWidth ✅
-2. alignX alignY 
-3. as props <Box as='h1' />
-4. left right bottom top when position:absolute ✅
-5. Inspect component ✅
-6. svg Icon component <Icon img='...' />
-7. box-sizing <Box borderBox />
-8. Media component <Media />
-9. Box {...props}
-10. user-select
+2. Box Stretch
+3. Box gradient
+4. export Props
+5. alignX alignY ✅ 
+6. as props <Box as='h1' />
+7. left right bottom top when position:absolute ✅
+8. Inspect component ✅
+9. svg Icon component <Icon img='...' />
+10. box-sizing <Box borderBox />
+11. Media component <Media />
+12. Box {...props}
+13. user-select
+14. enhanced skeleton

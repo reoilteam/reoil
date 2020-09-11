@@ -62,9 +62,13 @@ export interface BoxProps extends StyledBoxType, ColorProps {
   position?: CSS.PositionProperty
   fullWidth?: boolean
   inspect?: boolean
+  alignX?: CSS.JustifyContentProperty | CSS.AlignItemsProperty
+  alignY?: CSS.JustifyContentProperty | CSS.AlignItemsProperty
 }
 
-const Box: React.FC<BoxProps & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>> = ({
+const Box: React.FC<
+  BoxProps & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+> = ({
   style,
   color,
   row,
@@ -88,6 +92,8 @@ const Box: React.FC<BoxProps & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,
   position,
   fullWidth,
   inspect,
+  alignX,
+  alignY,
   ...props
 }) => {
   const childrenPosition = {
@@ -104,11 +110,18 @@ const Box: React.FC<BoxProps & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,
     colEvenly
   }
   const flexDirection = row ? 'row' : 'column'
-  const justifyContent = getComputedJustifyContent(
+  const justifyContent = getComputedJustifyContent({
     childrenPosition,
-    flexDirection
-  )
-  const alignItems = getComputedAlignItems(childrenPosition, flexDirection)
+    flexDirection,
+    alignX,
+    alignY
+  })
+  const alignItems = getComputedAlignItems({
+    childrenPosition,
+    flexDirection,
+    alignX,
+    alignY
+  })
   const cursor = pointer ? 'pointer' : undefined
   const transitionStyle =
     typeof transition === 'boolean'
@@ -139,10 +152,10 @@ const Box: React.FC<BoxProps & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,
         textTransform,
         transition: transitionStyle,
         position,
-        left: typeof left!=='boolean' ? left : undefined,
-        right: typeof right!=='boolean' ? right : undefined,
-        top: typeof top!=='boolean' ? top : undefined,
-        bottom: typeof bottom!=='boolean' ? bottom : undefined,
+        left: typeof left !== 'boolean' ? left : undefined,
+        right: typeof right !== 'boolean' ? right : undefined,
+        top: typeof top !== 'boolean' ? top : undefined,
+        bottom: typeof bottom !== 'boolean' ? bottom : undefined,
         width: fullWidth ? '100%' : undefined
       }}
       css={css`
@@ -150,11 +163,10 @@ const Box: React.FC<BoxProps & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,
         ${cover || fit || (objectFit && props.borderRadius)
           ? `overflow: hidden`
           : null};
-        position: relative
+        position: relative;
       `}
-      {...props}
-    >
-      {inspect&&<Inspect />}
+      {...props}>
+      {inspect && <Inspect />}
       {props.children}
     </StyledBox>
   )

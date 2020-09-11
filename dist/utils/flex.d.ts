@@ -17,10 +17,20 @@ declare type FlexDirection = CSS.FlexDirectionProperty;
 export declare type JustifyContentProps = CSS.JustifyContentProperty;
 export declare type AlignItemsProps = CSS.AlignItemsProperty;
 interface JustifyContentFN {
-    (childrenPosition: Position, direction: FlexDirection): JustifyContentProps;
+    (params: {
+        childrenPosition: Position;
+        flexDirection: FlexDirection;
+        alignX?: JustifyContentProps | AlignItemsProps;
+        alignY?: JustifyContentProps | AlignItemsProps;
+    }): JustifyContentProps;
 }
 interface AlignItemsFN {
-    (childrenPosition: Position, direction: FlexDirection): AlignItemsProps;
+    (parmas: {
+        childrenPosition: Position;
+        flexDirection: FlexDirection;
+        alignX?: JustifyContentProps | AlignItemsProps;
+        alignY?: JustifyContentProps | AlignItemsProps;
+    }): AlignItemsProps;
 }
 export declare const getComputedJustifyContent: JustifyContentFN;
 export declare const getComputedAlignItems: AlignItemsFN;
