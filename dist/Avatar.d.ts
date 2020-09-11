@@ -1,8 +1,8 @@
 import React from 'react';
 import { BoxProps } from './Box';
-interface Props extends BoxProps {
+export interface AvatarProps extends BoxProps {
     src?: string;
     random?: boolean;
 }
-declare const Avatar: React.FC<Props>;
+declare const Avatar: React.FC<AvatarProps>;
 export default Avatar;

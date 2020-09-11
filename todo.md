@@ -1,7 +1,7 @@
 1. Box fullWidth ✅
 2. Box Stretch ✅
 3. Box gradient
-4. export Props
+4. export Props ✅
 5. alignX alignY ✅ 
 6. as props <Box as='h1' />
 7. left right bottom top when position:absolute ✅
