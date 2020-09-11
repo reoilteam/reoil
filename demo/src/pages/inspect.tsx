@@ -3,6 +3,7 @@ import { RouteComponentProps } from '@reach/router'
 import { Box, Avatar } from 'reoil'
 
 const InspectPage: React.FC<RouteComponentProps> = () => {
+
   return (
     <Box inspect>
       <Box padding={10} bg='royalblue' borderRadius={2} fontSize={4} color='white'>

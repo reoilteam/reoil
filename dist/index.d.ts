@@ -1,4 +1,4 @@
-export { default as Box } from './Box';
-export { default as Avatar } from './Avatar';
-export { default as Image } from './Image';
-export { default as Media } from './Media';
+export { default as Box, BoxProps } from './Box';
+export { default as Avatar, AvatarProps } from './Avatar';
+export { default as Image, ImageProps } from './Image';
+export { default as Media, MediaProps } from './Media';
