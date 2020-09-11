@@ -3,6 +3,7 @@ import React from 'react'
 import { Box } from 'reoil'
 
 const BoxBoxSizing: React.FC<RouteComponentProps> = () => {
+
   return(
     <>
       <Box size={100} background='tomato' center color='white' padding={20}>
