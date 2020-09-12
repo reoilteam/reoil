@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react'
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
+import ResizeObserver from 'resize-observer-polyfill'
 
 const Inspect: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null)
