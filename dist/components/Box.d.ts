@@ -1,0 +1,38 @@
+import React, { HTMLAttributes, DetailedHTMLProps } from 'react';
+import { ColorProps, SpaceProps, LayoutProps, FlexProps, FlexboxProps, FontSizeProps, FontFamilyProps, FontWeightProps, FontStyleProps, BackgroundProps, BorderRadiusProps, BoxShadowProps, TextShadowProps, TextAlignProps, BorderProps } from 'styled-system';
+import * as CSS from 'csstype';
+export interface BoxProps extends StyledBoxType, ColorProps {
+    center?: boolean;
+    left?: boolean | string | number;
+    right?: boolean | string | number;
+    top?: boolean | string | number;
+    bottom?: boolean | string | number;
+    row?: boolean;
+    rowBetween?: boolean;
+    colBetween?: boolean;
+    rowAround?: boolean;
+    colAround?: boolean;
+    rowEvenly?: boolean;
+    colEvenly?: boolean;
+    color?: string;
+    pointer?: Boolean;
+    textTransform?: CSS.TextTransformProperty;
+    objectFit?: CSS.ObjectFitProperty;
+    fit?: CSS.ObjectFitProperty;
+    cover?: boolean;
+    transition?: boolean | CSS.TransitionProperty;
+    position?: CSS.PositionProperty;
+    fullWidth?: boolean;
+    inspect?: boolean;
+    alignX?: CSS.JustifyContentProperty | CSS.AlignItemsProperty;
+    alignY?: CSS.JustifyContentProperty | CSS.AlignItemsProperty;
+    stretch?: boolean;
+    boxSizing?: CSS.BoxSizingProperty;
+    borderBox?: boolean;
+    contentBox?: boolean;
+    userSelect?: CSS.UserSelectProperty;
+    pointerEvents?: CSS.PointerEventsProperty;
+}
+declare const Box: React.FC<BoxProps & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>>;
+declare type StyledBoxType = SpaceProps & LayoutProps & FlexProps & FlexboxProps & FontSizeProps & FontFamilyProps & FontWeightProps & FontStyleProps & BackgroundProps & BorderRadiusProps & BoxShadowProps & TextShadowProps & TextAlignProps & BorderProps;
+export default Box;
