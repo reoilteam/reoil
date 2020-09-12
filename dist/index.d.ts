@@ -1,4 +1,8 @@
-export { default as Box, BoxProps } from './components/Box';
-export { default as Avatar, AvatarProps } from './components/Avatar';
-export { default as Image, ImageProps } from './components/Image';
-export { default as Media, MediaProps } from './components/Media';
+export { default as Box } from './components/Box';
+export * from './components/Box';
+export { default as Avatar } from './components/Avatar';
+export * from './components/Avatar';
+export { default as Image } from './components/Image';
+export * from './components/Image';
+export { default as Media } from './components/Media';
+export * from './components/Media';
