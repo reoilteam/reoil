@@ -33,7 +33,7 @@ import {
   border,
   BorderProps
 } from 'styled-system'
-import { getComputedJustifyContent, getComputedAlignItems } from './utils/flex'
+import { getComputedJustifyContent, getComputedAlignItems } from '../utils/flex'
 import * as CSS from 'csstype'
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
