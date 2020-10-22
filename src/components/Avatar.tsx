@@ -3,7 +3,7 @@ import Box, {BoxProps} from './Box'
 import Image, {ImageProps} from './Image'
 
 export interface AvatarProps extends BoxProps {
-  src?: string,
+  src?: 'random' | string&{}
   /**Generate random pictures from https://picsum.photos/ for quick demonstration.*/
   random?: boolean
 }

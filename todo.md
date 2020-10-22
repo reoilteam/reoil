@@ -15,4 +15,6 @@
 15. enhanced Skeleton component
 16. Copy component
 17. zIndex
-18. fixbug - Box width={1} becomes width='100%' ✅
+18. fixbug - Box width={1} becomes width='100%'
+19. fixbug - Avatar random not working
+20. feature - 多行溢出
