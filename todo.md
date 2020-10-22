@@ -14,3 +14,4 @@
 14. pointerEvents ✅
 15. enhanced Skeleton component
 16. Copy component
+17. zIndex
