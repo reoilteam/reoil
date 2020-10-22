@@ -2,10 +2,8 @@ import React from 'react'
 import { Image } from 'reoil'
 import { RouteComponentProps } from '@reach/router'
 import { Box } from 'reoil'
-import { version } from 'reoil/package.json'
 
 const ImgPage: React.FC<RouteComponentProps> = () => {
-  console.log( version )
 
   return(
     <Box>
