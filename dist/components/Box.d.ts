@@ -22,6 +22,7 @@ export interface BoxProps extends StyledBoxType, ColorProps {
     cover?: boolean;
     transition?: boolean | CSS.TransitionProperty;
     position?: CSS.PositionProperty;
+    width?: CSS.WidthProperty<number>;
     fullWidth?: boolean;
     inspect?: boolean;
     alignX?: CSS.JustifyContentProperty | CSS.AlignItemsProperty;
