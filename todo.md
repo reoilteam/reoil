@@ -15,3 +15,4 @@
 15. enhanced Skeleton component
 16. Copy component
 17. zIndex
+18. fixbug - Box width={1} becomes width='100%' ✅

@@ -60,6 +60,7 @@ export interface BoxProps extends StyledBoxType, ColorProps {
   cover?: boolean
   transition?: boolean | CSS.TransitionProperty
   position?: CSS.PositionProperty
+  width?: CSS.WidthProperty<number>
   fullWidth?: boolean
   inspect?: boolean
   alignX?: CSS.JustifyContentProperty | CSS.AlignItemsProperty
@@ -96,6 +97,7 @@ const Box: React.FC<
   cover,
   transition,
   position,
+  width,
   fullWidth,
   inspect,
   alignX,
@@ -169,7 +171,7 @@ const Box: React.FC<
         right: typeof right !== 'boolean' ? right : undefined,
         top: typeof top !== 'boolean' ? top : undefined,
         bottom: typeof bottom !== 'boolean' ? bottom : undefined,
-        width: fullWidth ? '100%' : undefined,
+        width: fullWidth ? '100%' : width,
         boxSizing: borderBox&&'border-box' || contentBox&&'content-box' || boxSizing,
         userSelect,
         pointerEvents,
