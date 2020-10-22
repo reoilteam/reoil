@@ -2,8 +2,11 @@ import React from 'react'
 import { Image } from 'reoil'
 import { RouteComponentProps } from '@reach/router'
 import { Box } from 'reoil'
+import { version } from 'reoil/package.json'
 
 const ImgPage: React.FC<RouteComponentProps> = () => {
+  console.log( version )
+
   return(
     <Box>
       <Box inspect row>
@@ -27,6 +30,7 @@ const ImgPage: React.FC<RouteComponentProps> = () => {
         <h1>随机图片</h1>
         <Image />
       </Box>
+      <Box width={20} height={20} bg='hotpink'></Box>
     </Box>
   )
 }
