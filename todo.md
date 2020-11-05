@@ -22,4 +22,4 @@
 22. fixbug - Box size with minWidth
 23. feature - Box zoom style prop
 24. update - Inspect ui ✅
-25. fixbug - Name Media component to Meta
+25. fixbug - Name Media component to Meta ✅

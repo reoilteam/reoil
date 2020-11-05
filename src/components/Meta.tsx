@@ -1,11 +1,11 @@
 import React, { useLayoutEffect } from 'react'
 
-export interface MediaProps {
+export interface MetaProps {
   title: string
   favicon: string
 }
 
-const Media: React.FC<MediaProps> = ({
+const Meta: React.FC<MetaProps> = ({
   title,
   favicon
 }) => {
@@ -17,4 +17,4 @@ const Media: React.FC<MediaProps> = ({
   return(<></>)
 }
 
-export default Media
+export default Meta

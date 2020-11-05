@@ -7,5 +7,5 @@ export * from './components/Avatar'
 export {default as Image} from './components/Image'
 export * from './components/Image'
 
-export {default as Media} from './components/Media'
-export * from './components/Media'
+export {default as Meta} from './components/Meta'
+export * from './components/Meta'
