@@ -18,3 +18,8 @@
 18. fixbug - Box width={1} becomes width='100%'
 19. fixbug - Avatar random not working
 20. feature - 多行溢出
+21. feature - Box hide scroll bar
+22. fixbug - Box size with minWidth
+23. feature - Box zoom style prop
+24. update - Inspect ui ✅
+25. fixbug - Name Media component to Meta
