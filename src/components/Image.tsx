@@ -17,7 +17,7 @@ export interface ImageProps extends DetailedHTMLProps<ImgHTMLAttributes<HTMLImag
 }
 
 const Image: React.FC<ImageProps> = ({
-  src,
+  src='random',
   alt,
   objectFit,
   fit,
@@ -43,7 +43,7 @@ const Image: React.FC<ImageProps> = ({
 
   return (
     <img
-      src={src ? src === 'random' ? `https://picsum.photos/seed/${randomSeed(0,3000)}/300` : src : `https://picsum.photos/seed/${randomSeed(0,3000)}/300`}
+      src={src==='random' ? `https://picsum.photos/seed/${randomSeed(0,3000)}/300` : src}
       alt={alt}
       style={{
         objectFit: objectFitStyle(),
