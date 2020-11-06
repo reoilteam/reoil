@@ -1,9 +1,61 @@
 # reoil
  🧡Reoil is a low-level react original component library which can be used as wapper to replace \<div\> \<img\> etc, also can be wrapper for any other components."
 
----
+ Offical Website is designing, coming soon ...
+
+# Usage
+We will release clear official documents in the coming months ...
+
+## Components
+- Box
+- Avatar
+- Image
+- Copy
+- Meta
+
+## Example usage:
+Center all child elements
+```jsx
+<Box center>...</Box>
+```
+
+Right bottom all child elements
+```jsx
+<Box right bottom>...</Box>
+```
+
+Draw a button with Box
+```jsx
+<Box padding={12} borderRadius={8} bg='blue' color='white' pointer>Click Me</Box>
+```
+
+Customize a button component with Box
+```jsx
+const MyButton = ({children})=>{
+  return <Box padding={12} borderRadius={8} bg='blue' color='white' pointer>{children}</Box>
+}
+```
+
+Random or specify Avatar
+```jsx
+<Avatar src='random' />
+// or specify src
+<Avatar src='someurl' />
+```
+
+Image
+```js
+<Image src='random' width={200} height={100} fit='contain' /> 
+```
+
+
+
 
 # Development Build
+If you are interested in this library, you are welcome to build it together.
+
+Source Code [https://github.com/reoilteam/reoil](https://github.com/reoilteam/reoil).
+
 
 ## 1. Clone or Download
 `git clone git@github.com:reoilteam/reoil.git`
