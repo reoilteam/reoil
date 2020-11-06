@@ -44,11 +44,27 @@ Random or specify Avatar
 ```
 
 Image
-```js
+```jsx
 <Image src='random' width={200} height={100} fit='contain' /> 
 ```
 
+Some behavior component:
 
+Click to Copy
+```jsx
+<Copy>some text</Copy>
+// 'some text' will copy
+```
+```jsx
+<Copy>
+  <h1>Hello world</h1>
+  <p>Nice to meet you</p>
+</Copy>
+/* 
+  'Hello world
+  Nice to meet you' will copy
+*/
+```
 
 
 # Development Build
