@@ -1,8 +1,8 @@
 import React, { ImgHTMLAttributes, DetailedHTMLProps } from 'react'
 import * as CSS from 'csstype'
 
-export interface ImageProps {
-  src?: 'random' | string&{}
+export interface ImageProps extends DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement> {
+  src?: 'random' | (string&{})
   objectFit?: CSS.ObjectFitProperty
   fit?: CSS.ObjectFitProperty,
   cover?: boolean,
@@ -16,7 +16,7 @@ export interface ImageProps {
   borderRadius?: CSS.BorderRadiusProperty<number>
 }
 
-const Image: React.FC<ImageProps & DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>> = ({
+const Image: React.FC<ImageProps> = ({
   src,
   alt,
   objectFit,
