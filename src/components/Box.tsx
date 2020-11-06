@@ -39,6 +39,7 @@ import * as CSS from 'csstype'
 import { jsx, css } from '@emotion/core'
 import Inspect from './Inspect'
 
+/**Box main props offered */
 export interface BoxProps extends StyledBoxType, ColorProps {
   center?: boolean
   left?: boolean | string | number
@@ -71,10 +72,13 @@ export interface BoxProps extends StyledBoxType, ColorProps {
   contentBox?: boolean
   userSelect?: CSS.UserSelectProperty
   pointerEvents?: CSS.PointerEventsProperty
+  lineClamp?: number
 }
 
+/**Detailed Box component props */
 export type BoxComponentProps = BoxProps & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
+/**Box component */
 const Box: React.FC<BoxComponentProps> = React.forwardRef<HTMLDivElement, BoxComponentProps>(({
   style,
   color,
@@ -108,6 +112,7 @@ const Box: React.FC<BoxComponentProps> = React.forwardRef<HTMLDivElement, BoxCom
   contentBox,
   userSelect,
   pointerEvents,
+  lineClamp,
   ...props
 }, ref) => {
   const childrenPosition = {
@@ -156,6 +161,13 @@ const Box: React.FC<BoxComponentProps> = React.forwardRef<HTMLDivElement, BoxCom
     }
   `
 
+  const lineClampCSS = css`
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: ${lineClamp};
+    overflow: hidden;
+  `
+
   return (
     <StyledBox
       color={color}
@@ -179,10 +191,8 @@ const Box: React.FC<BoxComponentProps> = React.forwardRef<HTMLDivElement, BoxCom
       }}
       css={css`
         ${cover || fit || objectFit ? objectFitCSS : null};
-        ${cover || fit || (objectFit && props.borderRadius)
-          ? `overflow: hidden`
-          : null};
-        position: relative;
+        ${cover || fit || (objectFit && props.borderRadius) ? `overflow: hidden` : null}; position: relative;
+        ${lineClamp && lineClampCSS};
       `}
       ref={ref}
       {...props}>

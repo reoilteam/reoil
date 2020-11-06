@@ -33,6 +33,7 @@ export interface BoxProps extends StyledBoxType, ColorProps {
     contentBox?: boolean;
     userSelect?: CSS.UserSelectProperty;
     pointerEvents?: CSS.PointerEventsProperty;
+    lineClamp?: number;
 }
 export declare type BoxComponentProps = BoxProps & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 declare const Box: React.FC<BoxComponentProps>;

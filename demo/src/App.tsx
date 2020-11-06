@@ -6,6 +6,7 @@ import BoxAlign from './pages/BoxAlign'
 import BoxBoxSizing from './pages/BoxBoxSizing'
 import MediaPage from './pages/Media'
 import CopyDemo from './pages/CopyDemo'
+import LineClampDemo from './pages/LineClampDemo'
 
 const App: React.FC = () => {
   return(
@@ -16,6 +17,7 @@ const App: React.FC = () => {
       <BoxBoxSizing path='boxsizing' />
       <MediaPage path='media' />
       <CopyDemo path='copy' />
+      <LineClampDemo path='lineClamp' />
     </Router>
   )
 }
