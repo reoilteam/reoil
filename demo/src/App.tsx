@@ -5,6 +5,7 @@ import ImgPage from './pages/img'
 import BoxAlign from './pages/BoxAlign'
 import BoxBoxSizing from './pages/BoxBoxSizing'
 import MediaPage from './pages/Media'
+import CopyDemo from './pages/CopyDemo'
 
 const App: React.FC = () => {
   return(
@@ -14,6 +15,7 @@ const App: React.FC = () => {
       <BoxAlign path='boxAlign' />
       <BoxBoxSizing path='boxsizing' />
       <MediaPage path='media' />
+      <CopyDemo path='copy' />
     </Router>
   )
 }

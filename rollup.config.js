@@ -36,7 +36,8 @@ const options = {
     'react',
     '@emotion/core',
     '@emotion/styled',
-    'styled-system'
+    'styled-system',
+    'react-use'
   ]
 }
 export default options

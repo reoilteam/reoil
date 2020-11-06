@@ -1,19 +1,19 @@
 import React, { ImgHTMLAttributes } from 'react'
-import Box, {BoxProps} from './Box'
+import Box, {BoxComponentProps, BoxProps} from './Box'
 import Image, {ImageProps} from './Image'
 
-export interface AvatarProps extends BoxProps {
-  src?: 'random' | string&{}
-  /**Generate random pictures from https://picsum.photos/ for quick demonstration.*/
+export interface AvatarProps extends BoxComponentProps {
+  /**Image source url path */
+  src?: 'random' | (string&{})
+  /**Generate random pictures from https://picsum.photos/ for quick demonstration*/
   random?: boolean
 }
 
-const Avatar: React.FC<AvatarProps> = ({src, children, random, ...props}) => {
-
+const Avatar: React.FC<AvatarProps> = ({src='random', children, random,  ...props}) => {
 
   return(
-    <Box {...props} center={children?true:false}>
-      {src ? <Image src={src} /> : children}
+    <Box center={children?true:false} {...props}>
+      {children || <Image src={src} />}
     </Box>
   )
 }

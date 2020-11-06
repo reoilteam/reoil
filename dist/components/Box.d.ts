@@ -34,6 +34,7 @@ export interface BoxProps extends StyledBoxType, ColorProps {
     userSelect?: CSS.UserSelectProperty;
     pointerEvents?: CSS.PointerEventsProperty;
 }
-declare const Box: React.FC<BoxProps & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>>;
+export declare type BoxComponentProps = BoxProps & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+declare const Box: React.FC<BoxComponentProps>;
 declare type StyledBoxType = SpaceProps & LayoutProps & FlexProps & FlexboxProps & FontSizeProps & FontFamilyProps & FontWeightProps & FontStyleProps & BackgroundProps & BorderRadiusProps & BoxShadowProps & TextShadowProps & TextAlignProps & BorderProps;
 export default Box;

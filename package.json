@@ -54,8 +54,9 @@
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@types/styled-system": "^5.1.10",
-    "styled-system": "^5.1.5",
-    "csstype": "^2.6.11"
+    "csstype": "^2.6.11",
+    "react-use": "^15.3.4",
+    "styled-system": "^5.1.5"
   },
   "bit": {
     "env": {

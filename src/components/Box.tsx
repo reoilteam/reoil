@@ -73,9 +73,9 @@ export interface BoxProps extends StyledBoxType, ColorProps {
   pointerEvents?: CSS.PointerEventsProperty
 }
 
-const Box: React.FC<
-  BoxProps & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-> = ({
+export type BoxComponentProps = BoxProps & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+
+const Box: React.FC<BoxComponentProps> = React.forwardRef<HTMLDivElement, BoxComponentProps>(({
   style,
   color,
   row,
@@ -109,7 +109,7 @@ const Box: React.FC<
   userSelect,
   pointerEvents,
   ...props
-}) => {
+}, ref) => {
   const childrenPosition = {
     center,
     left: typeof left === 'boolean' && left ? left : undefined,
@@ -184,12 +184,15 @@ const Box: React.FC<
           : null};
         position: relative;
       `}
+      ref={ref}
       {...props}>
+
       {inspect && <Inspect />}
       {props.children}
+
     </StyledBox>
   )
-}
+})
 
 Box.defaultProps = {
   display: 'flex'
