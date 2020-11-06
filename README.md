@@ -48,7 +48,7 @@ Image
 <Image src='random' width={200} height={100} fit='contain' /> 
 ```
 
-Some behavior component:
+Some behavior components:
 
 Click to Copy
 ```jsx
@@ -64,6 +64,11 @@ Click to Copy
   'Hello world
   Nice to meet you' will copy
 */
+```
+
+Set title and favicon
+```jsx
+<Meta title='Home Page' favicon='some.png' />
 ```
 
 
