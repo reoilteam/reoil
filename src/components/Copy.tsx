@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { useCopyToClipboard } from 'react-use'
 
 // Props
-interface CopyProps {
+export interface CopyProps {
   /**Scope of copy */
   type?: 'innerText' | 'innerHTML' | 'outerHTML'
   /**Callback function with copiedStirng param exported */

@@ -1,5 +1,5 @@
 import React, { HTMLAttributes, DetailedHTMLProps } from 'react';
-import { ColorProps, SpaceProps, LayoutProps, FlexProps, FlexboxProps, FontSizeProps, FontFamilyProps, FontWeightProps, FontStyleProps, BackgroundProps, BorderRadiusProps, BoxShadowProps, TextShadowProps, TextAlignProps, BorderProps } from 'styled-system';
+import { ColorProps, SpaceProps, LayoutProps, FlexProps, FlexboxProps, BackgroundProps, BorderProps, TypographyProps, ShadowProps, ColorStyleProps } from 'styled-system';
 import * as CSS from 'csstype';
 export interface BoxProps extends StyledBoxType, ColorProps {
     center?: boolean;
@@ -37,5 +37,5 @@ export interface BoxProps extends StyledBoxType, ColorProps {
 }
 export declare type BoxComponentProps = BoxProps & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 declare const Box: React.FC<BoxComponentProps>;
-declare type StyledBoxType = SpaceProps & LayoutProps & FlexProps & FlexboxProps & FontSizeProps & FontFamilyProps & FontWeightProps & FontStyleProps & BackgroundProps & BorderRadiusProps & BoxShadowProps & TextShadowProps & TextAlignProps & BorderProps;
+declare type StyledBoxType = SpaceProps & LayoutProps & FlexProps & FlexboxProps & ColorStyleProps & BackgroundProps & ShadowProps & BorderProps & TypographyProps;
 export default Box;

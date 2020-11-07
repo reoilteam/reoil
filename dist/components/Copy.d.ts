@@ -1,5 +1,5 @@
 import React from 'react';
-interface CopyProps {
+export interface CopyProps {
     type?: 'innerText' | 'innerHTML' | 'outerHTML';
     onCopyTriggered?: (copiedString: string) => void;
 }

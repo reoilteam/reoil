@@ -11,32 +11,21 @@ import {
   FlexProps,
   flexbox,
   FlexboxProps,
-  fontSize,
-  FontSizeProps,
-  fontFamily,
-  fontWeight,
-  fontStyle,
-  FontFamilyProps,
-  FontWeightProps,
-  FontStyleProps,
   color,
   BackgroundProps,
   background,
-  borderRadius,
-  BorderRadiusProps,
-  boxShadow,
-  BoxShadowProps,
-  textShadow,
-  TextShadowProps,
-  textAlign,
-  TextAlignProps,
   border,
-  BorderProps
+  BorderProps,
+  TypographyProps,
+  typography,
+  ShadowProps,
+  shadow,
+  ColorStyleProps
 } from 'styled-system'
 import { getComputedJustifyContent, getComputedAlignItems } from '../utils/flex'
 import * as CSS from 'csstype'
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core'
+import { css } from '@emotion/core'
 import Inspect from './Inspect'
 
 /**Box main props offered */
@@ -213,35 +202,24 @@ type StyledBoxType = SpaceProps &
   LayoutProps &
   FlexProps &
   FlexboxProps &
-  FontSizeProps &
-  FontFamilyProps &
-  FontWeightProps &
-  FontStyleProps &
+  ColorStyleProps &
   BackgroundProps &
-  BorderRadiusProps &
-  BoxShadowProps &
-  TextShadowProps &
-  TextAlignProps &
-  BorderProps
+  ShadowProps &
+  BorderProps &
+  TypographyProps
 
 // Use styled-theme to decorate Box
 const StyledBox = styled.div<StyledBoxType | ColorProps>`
   ${color}
   ${layout}
-  ${colorStyle}
   ${space}
   ${flex}
   ${flexbox}
-  ${fontSize}
-  ${fontFamily}
-  ${fontWeight}
-  ${fontStyle}
+  ${colorStyle}
   ${background}
-  ${borderRadius}
-  ${boxShadow}
-  ${textShadow}
-  ${textAlign}
+  ${shadow}
   ${border}
+  ${typography}
 `
 
 export default Box
