@@ -25,7 +25,7 @@ import {
 import { getComputedJustifyContent, getComputedAlignItems } from '../utils/flex'
 import * as CSS from 'csstype'
 /** @jsx jsx */
-import { css } from '@emotion/core'
+import { jsx, css } from '@emotion/core'
 import Inspect from './Inspect'
 
 /**Box main props offered */
