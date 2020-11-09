@@ -1,14 +1,13 @@
 import { RouteComponentProps } from '@reach/router'
 import React from 'react'
-import { Box } from 'reoil'
+import Skeleton from 'react-loading-skeleton'
+import { Box, SkeletonText } from 'reoil'
 
 const SkeletonDemo: React.FC<RouteComponentProps> = () => {
   return(
     <>
-      <Box bg='gray'>
-        &zwnj;
-      </Box>
-      <Box color='red' fontWeight='bold' lineHeight={1.5}>hello</Box>
+      <Skeleton count={3}  />
+      <SkeletonText />
     </>
   )
 }

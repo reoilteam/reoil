@@ -8,3 +8,5 @@ export { default as Meta } from './components/Meta';
 export * from './components/Meta';
 export { default as Copy } from './components/Copy';
 export * from './components/Copy';
+export { default as SkeletonText } from './components/Skeleton/SkeletonText';
+export * from './components/Skeleton/SkeletonText';
