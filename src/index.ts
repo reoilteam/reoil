@@ -13,5 +13,5 @@ export * from './components/Meta'
 export {default as Copy} from './components/Copy'
 export * from './components/Copy'
 
-export {default as SkeletonText} from './components/Skeleton/SkeletonText'
-export * from './components/Skeleton/SkeletonText'
+export {default as SkeletonLine} from './components/Skeleton/SkeletonLine'
+export * from './components/Skeleton/SkeletonLine'
