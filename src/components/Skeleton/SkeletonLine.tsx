@@ -6,7 +6,6 @@ export interface SkeletonLineProps {
   width?: string | number
   height?: string | number
   darkmode?: boolean
-  color?: 'blackGray' | 'whiteGray' | string&{}
   marginBottom?: string | number
   borderRadius?: string | number
   divides?: number[]
@@ -18,7 +17,6 @@ export interface SkeletonLineProps {
 const SkeletonLine: React.FC<SkeletonLineProps> = ({
   width,
   height=16,
-  color='blackGray',
   darkmode,
   marginBottom,
   borderRadius=2,

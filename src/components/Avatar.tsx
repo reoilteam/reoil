@@ -1,6 +1,6 @@
-import React, { ImgHTMLAttributes } from 'react'
-import Box, {BoxComponentProps, BoxProps} from './Box'
-import Image, {ImageProps} from './Image'
+import React from 'react'
+import Box, {BoxComponentProps} from './Box'
+import Image from './Image'
 
 export interface AvatarProps extends BoxComponentProps {
   /**Image source url path */
