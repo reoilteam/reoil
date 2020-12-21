@@ -24,3 +24,5 @@
 25. update - Inspect ui ✅
 26. fixbug - Name Media component to Meta ✅
 27. update - Image props ✅
+28. fixbug - theme provider from @emotion/react not working
+29. feature - Box stretchSelf using alignSelf
